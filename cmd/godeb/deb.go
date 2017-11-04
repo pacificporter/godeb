@@ -3,7 +3,7 @@
 package main
 
 import (
-	"archive/tar"
+	"github.com/pacificporter/godeb/tar"
 	"bytes"
 	"compress/gzip"
 	"crypto/md5"
