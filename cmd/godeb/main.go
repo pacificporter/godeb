@@ -13,7 +13,6 @@ import (
 	"bytes"
 	"fmt"
 	"go/build"
-	"gopkg.in/xmlpath.v1"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -21,6 +20,8 @@ import (
 	"path"
 	"sort"
 	"strings"
+
+	"gopkg.in/xmlpath.v1"
 )
 
 var usage = `Usage: godeb <command> [<options> ...]
@@ -72,7 +73,6 @@ func run() error {
 	default:
 		return fmt.Errorf("unknown command: %s", os.Args[1])
 	}
-	return nil
 }
 
 func listCommand() error {
@@ -184,7 +184,7 @@ type tarballSource struct {
 }
 
 var tarballSources = []tarballSource{
-	{"http://golang.org/dl/", "//a/@href[contains(., 'storage.googleapis.com/golang/')]"},
+	{"https://golang.org/dl/", "//a/@href[contains(., 'redirector.gvt1.com/edgedl/go/')]"},
 }
 
 func tarballs() ([]*Tarball, error) {
